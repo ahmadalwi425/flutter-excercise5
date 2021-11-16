@@ -7,19 +7,30 @@ class ItemPage extends StatelessWidget{
     final Item itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
     return Scaffold(
       appBar: AppBar(
-        title: Text("List View"),
+        title: Text("List Detail"),
       ),
       body: Container(
         margin: EdgeInsets.all(8),
-        child: Row(
+        child: Column(
           children: [
-            Expanded(child: Text(itemArgs.name)),
-            Expanded(
-              child: Text(
-                itemArgs.price.toString(),
-                textAlign: TextAlign.end,
+            Row(children: [
+              Expanded(child: Text(itemArgs.name)),
+              Expanded(
+                child: Text(" ("+
+                  itemArgs.price.toString() + ")",
+                  textAlign: TextAlign.end,
+                )
               )
-            )
+            ],),
+            
+            Row(children: [
+              Expanded(child: Text(itemArgs.Category,
+                      style: TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),),
+            ),
+            ],),
+            Row(children: [
+              Expanded(child: Text(itemArgs.Desc)),
+            ],),
           ],
         )
       )

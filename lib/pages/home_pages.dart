@@ -4,8 +4,8 @@ import '../models/item.dart';
 class HomePage extends StatelessWidget{
   @override  
   final List<Item> items = [
-    Item('Sugar',5000),
-    Item('Salt',2000),
+    Item('Sugar',5000,"seasoning","Refined sugar is sugar that goes through the process of refining crystal sugar. The government strictly regulates the use of sugar because it is risky to health."),
+    Item('Salt',2000,"seasoning","Table salt is a type of mineral that can make a salty taste. Usually the commonly available table salt is sodium chloride produced by sea water."),
   ];
   Widget build(BuildContext content){
     // throw UnimplementedError();
@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget{
                 child: Row(
                   children: [
                     Expanded(child: Text(item.name)),
+                    Expanded(child: Text(" ("+item.Category+")")),
                     Expanded(
                       child: Text(
                         item.price.toString(),
